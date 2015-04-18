@@ -66,4 +66,10 @@ An aggregate class whose date members are all of literal type is a literal class
 
 ![const](http://p.blog.csdn.net/images/p_blog_csdn_net/hikaliv@gmail.com/576581/o_Capture_thumb_633868356432343750.jpg)
 
+**考虑：**
+
+	int i = 0;
+	const int& i_am_const = i; //ok, but i could change and makes i_am_const change too.
+	constexpr int i_am_constexpr = j; //complie error
+
 **我们可以看到，constexpr的运用有着严格的限制，而且增加了语言的复杂度，VS2013并未支持**
