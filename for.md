@@ -15,4 +15,4 @@
 	for(auto &r : v)
 		r *= 2;
 		
-> We can **not use a range for to add elements to a vector(or other container).** In a range for, the value of *end()* is cached. If we add elements to(or remove them from) the sequence, the value of end might be invalidated. 
+> 迭代过程中容器不可增加或删除元素：We can **not use a range for to add elements to a vector(or other container).** In a range for, the value of *end()* is cached. If we add elements to(or remove them from) the sequence, the value of end might be invalidated. 
