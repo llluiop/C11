@@ -1,24 +1,29 @@
-#constexpr#
+#decltype#
 
 ##简介##
-> A constant expression is an expression whose value cannot change and that can be evaluated at complile time.A literal is a constant expression.A const object that is initialized from a constant expression is also a constant expression.
+> Sometimes we want to define a variale with a type that complier deduces from an expression but do not want to use that expression to initializer the variable. 
+	decltype(f()) sum = x;
 
-const表达式就是值不可改变，并且可以在编译器被求值，因此像字面值或者是被const类型初始化的变量都属于此类型。
-
-
-	const int max_files = 20; // max_files is a constant expression
-	const int sz = get_size(); //sz is ont a constant expression
+	auto sum; //error
 
 
-> In C++ 11, we can ask the compiler to verify that a variable is a constant expression by declaring the variable in a constexpr declaration.Variables declared as constexpr are implicitly const and must be initialized by constant exprssions
+> The way decltype handles top-level cosnt and reference dirrers subtly from the way *auto* does. When the expression to wihch we apply decltype is a variable, decltype returns the type of that variable, **including top-level const and reference**:
+	
+	const int ci = 0; &cj = ci;
+	decltype(ci) x = 0; //const int
+	decltype(cj) y = x; //const int&
+	decltype(cj) z;     //error: not initialzed
 
-新标准下，我们可以使用constexpr关键字来告诉编译器显式的将一个变量定义为const类型：
+> Gnereally speaking, decltype returns a reference type for expressions that yield objects that can stand on the left-hand side of the assignment(如果表达式返回左值，decltype推断的为引用类型):
 
-	constexpr int mf = 10; 
-	constexpr int sz = size(); //only if size() is a constexpr function
+	int i= 42， *p = &i, &r = i;
+	decltype(r+0) b; //b is an int
+	decltype(*p) c;  //c is an int& 
 
-**那么什么样的类型可以声明为constexpr呢？**
+> Enclosing the name of a variable in parentheses affects the type returned by decltype. When we apply decltype to a variable without any parenthese, we get the type of that variable. If we wrap the variable's name in one or more sets of parenthese, the complier will evaluate the operand as an expression.A variable is an expression that can be the left-hand side of an assignment. As a result, decltype on such an expression yields a reference:
 
+	decltype(i) d; //ok
+	decltype((i)) e; //error : e is an int&
 > The arithmetic,reference and pointer types are literal types. Some Class like library IO and string types are not literal types. We can make some class as literal types.
 An aggregate class whose date members are all of literal type is a literal class. A nonaggregate class, that meet the following restrictions is also a literal class:
 
