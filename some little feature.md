@@ -33,7 +33,7 @@
 
 > 32位系统下，一个long long int是保有至少64个有效比特的整数类别。C++11使其成为标准
 
-**允许sizeof作用在类的数据成员上
+**允许sizeof作用在类的数据成员上**
 
 	struct Type { OtherType member;};
 	sizeof(Type::member);        //取非静态成员的大小，C++03不允许，C++11允许
