@@ -28,3 +28,28 @@
 	template<bool Test> SomeType;
 	std::vector<SomeType<1>2>> x1;  // as SomeType<true> 2>, error
 	std::vector<SomeType<(1>2)>> x1; //as SomeType<false> , ok
+
+**long long int**
+
+> 32位系统下，一个long long int是保有至少64个有效比特的整数类别。C++11使其成为标准
+
+**允许sizeof作用在类的数据成员上
+
+	struct Type { OtherType member;};
+	sizeof(Type::member);        //取非静态成员的大小，C++03不允许，C++11允许
+	
+	
+**散列表**
+
+> C++11里散列表为了避免与第三方库中的冲突，前缀使用unordered而非hash
+
+> 标准库引入了四种散列表，器差别在于两个地方：是否接受相同键值的项目，是否会将键值映射到相对应的数据：
+
+散列表类型 | 有无关系值 | 接受相同的键值 
+:-------------- | :------------- | :---------
+std::unordered_set | No | No
+std::unordered_multiset | No | Yes
+std::unordered_map | Yes | No
+std::unordered_mulitmap | Yes | Yes
+
+> 上述满足一个容器类的需求，同时也提供了访问函数：`insert，erase，begin，end`
