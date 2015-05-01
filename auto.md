@@ -53,3 +53,27 @@
 		auto &g = ci; // g is a const int&
 		auto &h = 42; //error
 		const auto &j = 42; //ok
+		
+		
+**Example**
+
+	template< typename BuiltType, typename Builder>
+	void MakeObject(const Builder& builder)
+	{
+		BuiltType val = builder.make();
+	}
+	
+	//调用：
+	Bulider builder;
+	MakeObjdect<Obj>(builder>;
+
+	//With auto:
+	template<typename Builder>
+	void MakeObject(const Builder& builder)
+	{
+		auto val = builder.make();
+	}
+	
+	//调用：
+	Builder builder;
+	MakeObject(builder);
