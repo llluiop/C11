@@ -80,7 +80,7 @@
 	};
 	
 	Basic v1{1 ,2.0f};
-	AltStruct v2(2, 3.0f};   //call AltStruct(int x, float y)
+	AltStruct v2{2, 3.0f};   //call AltStruct(int x, float y)
 	
 > 统一初始化不会取代构造函数语法，如果一个类拥有初始化列表构造函数，而初始化对象时用到的初始化列表符合此构造函数的类型`(initializer_list<SomeType>))`,那么它比其他构造函数的优先级都高，当：
 
