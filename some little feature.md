@@ -53,3 +53,28 @@ std::unordered_map | Yes | No
 std::unordered_mulitmap | Yes | Yes
 
 > 上述满足一个容器类的需求，同时也提供了访问函数：`insert，erase，begin，end`
+
+**强类型枚举**
+
+> 标准c++中枚举不是类型安全的，枚举类型可以被视为整数并且与整数比较，在C++ 03中，*一个整数或者枚举类型是不可以隐式的转换为另一个枚举类型**，同时枚举的名称不可以重复，例如：`enum Side{Right, Left}; enum Thing{Right, Wrong};`
+
+> C++11引入了一种强类型枚举，使用`enum class`：
+
+	enum class Enumeration
+	{
+		var1,
+		var2,
+		var3 = 100,
+		var4 /* = 101*/
+	};	
+	
+	此时：Enumeration::var4 = 101会编译时出错
+	
+> 枚举可以显示的指定类型： `enum class Enum: unsigned int{var1, var2} or enum Enum: unsigned int {var1, var2}`
+
+> C++11中，新式的枚举可以前置声明：
+
+	enum Enum1; //错误
+	enum Enum2: unsigned int; //正确，合法的c++11
+	enum class Enum3; //正确
+	enum class Enum4:unsigned int; //合法
