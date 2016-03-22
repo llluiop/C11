@@ -6,11 +6,14 @@
 
 > std::thread构造：
 
+
+|name | propery|
 |-------------- |:-------------:|
 |default(1) | thread() noexcept;|
 |initialization(2) | template<class Fn, class... Arg> explicit thread(Fn&& fn, Args&&... args);|
 |copy(3) | thread(const thread&) = delete;|
 |move(4) | thread(thread&& x) noexcept;|
+
 
 1. 默认构造，创建一个空对象
 1. 初始化拷贝构造函数，该函数可被joinable，新产生的线程会调用fn函数，参数为args
