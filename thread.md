@@ -32,6 +32,7 @@
 	
 > std::thread move:
 
+|name | propery|
 |:-------------- | :-------------|
 |move(1) | thread& operator= (thread&& rhs) noexcept ;|
 |copy(2) | thread& operator=(const thread&) = delete;|
