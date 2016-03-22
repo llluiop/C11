@@ -6,7 +6,7 @@
 
 > std::thread构造：
 
-|:-------------- | :-------------|
+|-------------- |:-------------:|
 |default(1) | thread() noexcept;|
 |initialization(2) | template<class Fn, class... Arg> explicit thread(Fn&& fn, Args&&... args);|
 |copy(3) | thread(const thread&) = delete;|
