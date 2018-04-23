@@ -6,9 +6,12 @@
 
 using namespace std;
 
+extern int promise_test();
+
 int main()
 {
-	thread t;
-    return 0;
+	promise_test();
+
+    return getchar();
 }
 

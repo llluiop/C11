@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{2eb7b912-852c-4d73-aaf6-55bfe1067f3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -31,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="c11.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thread.cpp">
+      <Filter>thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
